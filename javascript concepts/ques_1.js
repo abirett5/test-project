@@ -21,4 +21,23 @@ function secondLargest(arr) {
     console.log(uniqueArr);
 }
 
-console.log(secondLargest([12, 35, 1, 10, 34, 1]));
+let numbers = [12, 35, 1, 10, 34, 1];
+
+// console.log(secondLargest(numbers));
+
+
+// Optimised approach
+function secondLargestOptimised(arr) {
+    let largest = Number.NEGATIVE_INFINITY;
+    let secondLargest = Number.NEGATIVE_INFINITY;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+            secondLargest = largest;
+        }else if (arr[i] !== largest && arr[i] > secondLargest) {
+            secondLargest = arr[i];
+        } 
+    }
+    return secondLargest;
+}
